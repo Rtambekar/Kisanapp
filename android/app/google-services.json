@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "897886669760",
+    "project_id": "kisanapp-b2bce",
+    "storage_bucket": "kisanapp-b2bce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897886669760:android:bc849ebd35779363e29625",
+        "android_client_info": {
+          "package_name": "com.kisanapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBtgvmT9sM8qTmWkIadR-tKLLpT1TxB1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
