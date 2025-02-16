@@ -106,11 +106,12 @@ const ListingPage = () => {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>{t("Posts")}</Text>
-        <CommonButton 
-          title={t("Logout")} 
+        <TouchableOpacity>
+        <Text
           onPress={handleLogout}
           style={styles.logoutButton}
-        />
+        >{t("Logout")}</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Post Listing */}
@@ -171,10 +172,11 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   logoutButton: {
-    backgroundColor: '#FF3B30',
+    backgroundColor: '#8B78E6',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 8,
+    color: 'white'
   },
   listContent: {
     padding: 8,
