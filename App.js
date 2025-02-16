@@ -4,7 +4,7 @@ import LoginPage from './src/screens/LoginPage';
 import RegisterPage from './src/screens/RegisterPage';
 import ListingPage from './src/screens/ListingPage';
 import DetailsPage from './src/screens/DetailsPage';
-
+import './i18n';
 const Stack = createStackNavigator();
 
 const App = () => {

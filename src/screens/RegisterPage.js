@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import auth from '@react-native-firebase/auth';
+import { useTranslation } from 'react-i18next';
+import CommonButton from '../components/CommonButton';
+
 
 const RegisterPage = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const { t } = useTranslation();
 
   const handleRegister = async () => {
     if (password !== confirmPassword) {
@@ -22,13 +26,21 @@ const RegisterPage = ({ navigation }) => {
       Alert.alert('Error', error.message);
     }
   };
+ 
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Register</Text>
+      <View style={styles.welcomeSection}>
+                  <Text style={styles.wish}>{t('createAccount')}</Text>
+                  <Text style={styles.title}>{t('signupHeadline')}</Text>
+                </View>
+      
+       {/* <Text style={styles.wish}>{t('createAccount')}</Text>
+       <Text style={styles.title}>{t('signupHeadline')}</Text> */}
+       
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder={t('email')}
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"
@@ -36,21 +48,21 @@ const RegisterPage = ({ navigation }) => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Password"
+        placeholder={t('password')}
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
       <TextInput
         style={styles.input}
-        placeholder="Confirm Password"
+        placeholder={t('confirmPassword')}
         value={confirmPassword}
         onChangeText={setConfirmPassword}
         secureTextEntry
       />
-      <Button title="Register" onPress={handleRegister} />
-      <Button
-        title="Go Back to Login"
+        <CommonButton title={t('signup')} onPress={handleRegister} />
+      <CommonButton
+        title= {t('alreadyUser')}
         onPress={() => navigation.navigate('Login')}
       />
     </View>
@@ -63,20 +75,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    textAlign: 'center',
-  },
+
   input: {
     height: 40,
     borderColor: 'black',
     borderWidth: 1,
     marginBottom: 16,
-    
+
     paddingHorizontal: 8,
     borderRadius: 4,
+  },
+  wish: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: '#333',
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 24,
+    color: '#666',
+    fontWeight: '600',
   },
 });
 
